@@ -23,7 +23,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
     fetchProducts: () => dispatch( fetchProducts() ),
     fetchCart: () => dispatch( fetchCart() ),
-    // postProduct: (productId, title, imageurl, price, description) => dispatch(postProduct(productId, title, imageurl, price, description))
+    // postProduct: (productId, title, , price, description) => dispatch(postProduct(productId, title, , price, description))
 })
 
 class Main extends Component {
@@ -40,17 +40,20 @@ class Main extends Component {
     render() {
 
         const ProductWithId = ( {match} ) => {
+            console.log('1',match);
+            console.log('2',this.props.products.products)
+            console.log('3, 1 product', this.props.products.products.filter(p => p.id ===parseInt( match.params.id, 10) )[0])
             return (
                 <Edit
                 //chỉ lấy 1 product
-                 product = {this.props.products.products.filter(p => p.id === match.params.id )[0]} 
+                 product = {this.props.products.products.filter(p => p.id === parseInt( match.params.id, 10) )[0]} 
                  isLoading={this.props.products.isLoading}
                  errMess={this.props.products.errMess} 
                 //  postProduct={this.props.postProduct}
                  />
             )
         }
-        // console.log(this.props.products.products);
+        console.log('//main',this.props.products.products);
         return (
             <div> 
                 <Header />

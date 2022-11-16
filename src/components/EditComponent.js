@@ -12,20 +12,14 @@ class Edit extends Component {
 
     handleSubmit() {
         // this.props.postProduct (
-        //     this.props.product.id, 
-        //     this.title.value,
-        //     this.imageurl.value,
-        //     this.price.value,
-        //     this.description.value
         // )
         const Prod = {
             id: this.props.product.id,
             title: this.title.value,
-            imageurl: this.imageurl.value,
+            imageUrl: this.imageUrl.value,
             price: this.price.value,
             description: this.description.value
         }
-
 
         fetch('http://localhost:5001/admin/edit-product', {
             method: 'post',
@@ -36,6 +30,7 @@ class Edit extends Component {
     }
 
     render() {
+
         if (this.props.isLoading) {
             return(
                 <div className="container">
@@ -71,9 +66,9 @@ class Edit extends Component {
                          defaultValue = {this.props.product.title}
                         />
 
-                        <Label htmlFor="imageurl">Image url</Label>
-                        <Input  type="text" name="imageurl" innerRef={(input) => this.imageurl = input}
-                         defaultValue = {this.props.product.imageurl}
+                        <Label htmlFor="imageUrl">Image url</Label>
+                        <Input  type="text" name="imageUrl" innerRef={(input) => this.imageUrl = input}
+                         defaultValue = {this.props.product.imageUrl}
                          />
 
                         <Label htmlFor="price">Price</Label>

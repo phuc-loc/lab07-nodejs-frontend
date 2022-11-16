@@ -32,6 +32,7 @@ class Shop extends Component {
     }
 
     render() {
+
         const list = this.props.products.map( (product) => {
 
             // **Loading, errMess** 
@@ -83,7 +84,6 @@ class Shop extends Component {
                                 <Input type="hidden" name="productId" value={product.id} />
                                 <Button type="submit">Delete</Button>
                             </Form>
-
 
 
                         </Card>

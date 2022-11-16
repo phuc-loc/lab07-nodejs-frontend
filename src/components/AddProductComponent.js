@@ -13,7 +13,7 @@ class AddProduct extends Component {
         const newProduct = {
             title: this.title.value,
             price: this.price.value,
-            imageurl: this.imageurl.value,  
+            imageUrl: this.imageUrl.value,  
             description: this.description.value
         }
         console.log(newProduct);
@@ -36,8 +36,8 @@ class AddProduct extends Component {
                         <Label htmlFor="title">Title</Label>
                         <Input type="text" name="title" innerRef={(input) => this.title = input} />
 
-                        <Label htmlFor="imageurl">Image url</Label>
-                        <Input type="text" name="imageurl" innerRef={(input) => this.imageurl = input} />
+                        <Label htmlFor="imageUrl">Image url</Label>
+                        <Input type="text" name="imageUrl" innerRef={(input) => this.imageUrl = input} />
 
                         <Label htmlFor="price">Price</Label>
                         <Input type="text" name="price" innerRef={(input) => this.price = input} />
