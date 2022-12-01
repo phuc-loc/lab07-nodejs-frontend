@@ -7,7 +7,8 @@ import Cart from './CartComponent';
 import Header from './HeaderComponent';
 import Edit from "./EditComponent";
 import Products from "./ProductsComponent";
-import { fetchProducts, fetchCart,  
+import Orders from "./OrdersComponent";
+import { fetchProducts, fetchCart, fetchOrders
     // postProduct 
 } from "../redux/ActionCreator";
 
@@ -15,7 +16,8 @@ const mapStateToProps = (state) => {
     // console.log('state', state);
     return {
         products: state.products,
-        cart: state.cart
+        cart: state.cart,
+        orders: state.orders
     }
 }
   
@@ -23,6 +25,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
     fetchProducts: () => dispatch( fetchProducts() ),
     fetchCart: () => dispatch( fetchCart() ),
+    fetchOrders: () => dispatch(fetchOrders())
     // postProduct: (productId, title, , price, description) => dispatch(postProduct(productId, title, , price, description))
 })
 
@@ -35,14 +38,15 @@ class Main extends Component {
     componentDidMount() { 
         this.props.fetchProducts();
         this.props.fetchCart();
+        this.props.fetchOrders();
     }
 
     render() {
 
         const ProductWithId = ( {match} ) => {
-            console.log('1',match);
-            console.log('2',this.props.products.products)
-            console.log('3, 1 product', this.props.products.products.filter(p => p.id ===parseInt( match.params.id, 10) )[0])
+            // console.log('1',match);
+            // console.log('2',this.props.products.products)
+            // console.log('3, 1 product', this.props.products.products.filter(p => p.id ===parseInt( match.params.id, 10) )[0])
             return (
                 <Edit
                 //chỉ lấy 1 product
@@ -53,7 +57,7 @@ class Main extends Component {
                  />
             )
         }
-        console.log('//main',this.props.products.products);
+        // console.log('//main',this.props.products.products);
         return (
             <div> 
                 <Header />
@@ -63,8 +67,9 @@ class Main extends Component {
                     <Route path="/cart" component={ () => <Cart cart = {this.props.cart.cart} />} />
                     <Route path="/products" component = { () => <Products products={this.props.products.products} />} />
                     <Route path="/edit/:id" component={ProductWithId } />
+                    <Route path="/orders" component={() => <Orders orders = {this.props.orders.orders} /> } />
                 </Switch>
-            </div>
+            </div> 
         )
     }
 

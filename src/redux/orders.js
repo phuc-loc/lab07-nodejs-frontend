@@ -1,20 +1,20 @@
 import * as ActionTypes from './ActionType'; 
 
-export const Cart = ( state = {
+export const Orders = ( state = {
     isLoading : true,
     errMess : null,
-    cart : []
+    orders : []
 }, action) => { 
     switch (action.type) {
-        case ActionTypes.ADD_CART:
+        case ActionTypes.ADD_ORDERS:
             return { ...state, 
-                isLoading: false, errMess: null, cart: action.payload };
+                isLoading: false, errMess: null, orders: action.payload };
 
-        case ActionTypes.CART_LOADING:
+        case ActionTypes.ORDERS_LOADING:
             return { ...state, 
-                isLoading: true, errMess: null, cart: [] }
+                isLoading: true, errMess: null, orders: [] }
 
-        case ActionTypes.CART_FAILED: 
+        case ActionTypes.ORDERS_FAILED: 
             return { ...state,
                  isLoading: false, errMess: action.payload };
 

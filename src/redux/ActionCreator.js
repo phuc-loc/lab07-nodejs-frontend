@@ -5,7 +5,7 @@ export const fetchProducts = () => (dispatch) => {
 
     dispatch(productsLoading(true));
     
-    return fetch('http://localhost:5001/admin/add-product')
+    return fetch('http://localhost:5001/admin/add-product') 
         .then(response => {
             if (response.ok) {
                 // console.log('response', response);
@@ -22,7 +22,7 @@ export const fetchProducts = () => (dispatch) => {
         .then(response => response.json())
         // .then ( data => console.log('data', data))
         .then(products => {
-            console.log('//products' , products);
+            // console.log('//products' , products);
             dispatch(addProducts(products));
         })
         .catch(error => dispatch(productsFailed(error.message)));
@@ -63,7 +63,10 @@ export const fetchCart = () => (dispatch) => {
 
         })
         .then(response => response.json())
-        .then(cart => dispatch(addCart(cart)))
+        .then(cart => {
+            // console.log(cart)
+            dispatch(addCart(cart))
+        })
         .catch(error => dispatch(cartFailed(error.message)));
 }
 
@@ -126,3 +129,44 @@ export const cartFailed = (errmess) => ({
 //       type: ActionTypes.EDIT_PRODUCT,
 //       payload: product
 //   })
+
+
+//3 order 
+export const fetchOrders = () => (dispatch) => { 
+    dispatch(ordersLoading(true));
+    return fetch('http://localhost:5001/user/orders')
+        .then(response => {
+            if (response.ok) {
+                return response
+            } else {
+                var error = new Error('Error ' + response.status + ': ' + response.statusText);
+                error.response = response;
+                throw error;
+            }
+        }, error => {
+            var errmess = new Error(error.message);
+            throw errmess;
+
+        })
+        .then(response => response.json())
+        .then(orders => {
+            console.log('//orders', orders)
+            dispatch(addOrders(orders))
+        })
+        .catch(error => dispatch(ordersFailed(error.message)));
+}
+
+export const ordersLoading = () => ({
+    type: ActionTypes.ORDERS_LOADING
+});
+
+export const addOrders = (orders) => ({
+    type: ActionTypes.ADD_ORDERS,
+    payload: orders
+});
+
+
+export const ordersFailed = (errmess) => ({
+    type: ActionTypes.ORDERS_FAILED,
+    payload: errmess
+});

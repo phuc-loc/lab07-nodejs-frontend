@@ -8,4 +8,7 @@ export const CART_FAILED = 'CART_FAILED';
 
 // export const EDIT_PRODUCT = 'EDIT-PRODUCT'; 
 
+export const ADD_ORDERS = 'ADD_ORDERS';
+export const ORDERS_LOADING = 'ORDERS_LOADING';
+export const ORDERS_FAILED = 'ORDERS_FAILED';
 

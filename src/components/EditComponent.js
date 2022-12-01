@@ -4,7 +4,7 @@ import { Form, Label, Input, Button } from 'reactstrap';
 import { LocalForm, Control, Errors } from 'react-redux-form';
 import {Loading} from './LoadingComponent';
 
-class Edit extends Component { 
+class Edit extends Component {  
     constructor(props) {  
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,7 +25,7 @@ class Edit extends Component {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify( Prod )
-        })
+        }) 
 
     }
 
@@ -57,7 +57,7 @@ class Edit extends Component {
             
             <div className="container" >
                 
-                <div className="col-lg-4"> 
+                {/* <div className="col-lg-4">  */}
 
                     <Form onSubmit={this.handleSubmit}>
 
@@ -84,7 +84,7 @@ class Edit extends Component {
                         <Button>Edit Product</Button>
 
                     </Form>
-                </div>
+                {/* </div> */}
             </div>
 
         )
