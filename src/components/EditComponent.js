@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
 import { Form, Label, Input, Button } from 'reactstrap';
-import { LocalForm, Control, Errors } from 'react-redux-form';
 import {Loading} from './LoadingComponent';
 
 class Edit extends Component {  
@@ -11,10 +9,8 @@ class Edit extends Component {
     }
 
     handleSubmit() {
-        // this.props.postProduct (
-        // )
         const Prod = {
-            id: this.props.product.id,
+            id: this.props.product._id,
             title: this.title.value,
             imageUrl: this.imageUrl.value,
             price: this.price.value,
@@ -51,13 +47,14 @@ class Edit extends Component {
         }
         else if (this.props.product != null) 
     
-        console.log(this.props.product.id);
+        // console.log('//',this.props);
 
         return (
             
+            
             <div className="container" >
                 
-                {/* <div className="col-lg-4">  */}
+                <div className="col-lg-4">  
 
                     <Form onSubmit={this.handleSubmit}>
 
@@ -84,7 +81,7 @@ class Edit extends Component {
                         <Button>Edit Product</Button>
 
                     </Form>
-                {/* </div> */}
+               </div>
             </div>
 
         )
@@ -92,3 +89,14 @@ class Edit extends Component {
 }
 
 export default Edit;
+
+// import React from "react"
+// function Edit (props) {
+//     console.log(props)
+//     return (
+//         <div>
+//             <h1>Hello</h1>
+//         </div>
+//     )
+// }
+// export default Edit;

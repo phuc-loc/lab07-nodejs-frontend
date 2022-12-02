@@ -73,7 +73,7 @@ class Shop extends Component {
                                 </Form>
 
                                 {/* button edit */}
-                                <Link to={`/edit/${product.id}`}><Button type="submit">Edit</Button></Link>
+                                <Link to={`/edit/${product._id}`}><Button type="submit">Edit</Button></Link>
 
                                 {/* button Delete */}
                                 <Form onSubmit={(value) => this.handleSubmitDelete(value)} >

@@ -44,13 +44,13 @@ class Main extends Component {
     render() {
 
         const ProductWithId = ( {match} ) => {
-            // console.log('1',match);
+            // console.log('1',match.params.id);
             // console.log('2',this.props.products.products)
-            // console.log('3, 1 product', this.props.products.products.filter(p => p.id ===parseInt( match.params.id, 10) )[0])
+            // console.log('3 product', this.props.products.products.filter(p => p._id ===  match.params.id )[0])
             return (
                 <Edit
                 //chỉ lấy 1 product
-                 product = {this.props.products.products.filter(p => p.id === parseInt( match.params.id, 10) )[0]} 
+                 product = {this.props.products.products.filter(p => p._id ===  match.params.id )[0]} 
                  isLoading={this.props.products.isLoading}
                  errMess={this.props.products.errMess} 
                 //  postProduct={this.props.postProduct}
