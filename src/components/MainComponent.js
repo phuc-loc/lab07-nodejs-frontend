@@ -57,7 +57,7 @@ class Main extends Component {
                  />
             )
         }
-        // console.log('//main',this.props.products.products);
+        console.log('//main',this.props.products);
         return (
             <div> 
                 <Header />

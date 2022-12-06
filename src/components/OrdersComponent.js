@@ -6,11 +6,11 @@ function Orders(props) {
     const list = props.orders.map(order => {
         return (
             <ul>
-                <h1>#{order.id}</h1>
+                <h1>#{order._id}</h1>
                 <ul>
-                    {order.products.map(product => {
+                    {order.items.map(product => {
                         return (
-                            <li>{product.title} ( {product.orderItem.quantity} )</li>
+                            <li>{product.title} ( {product.quantity} )</li>
                         )
                     })}
                 </ul>

@@ -16,13 +16,13 @@ export const fetchProducts = () => (dispatch) => {
                 throw error;
             }
         }, error => {
-            var errmess = new Error(error.message);
+            var errmess = new Error(error.message); 
             throw errmess;
         })
         .then(response => response.json())
         // .then ( data => console.log('data', data))
         .then(products => {
-            // console.log('//products' , products);
+            console.log('//products in action creator' , products);
             dispatch(addProducts(products));
         })
         .catch(error => dispatch(productsFailed(error.message)));
@@ -64,7 +64,7 @@ export const fetchCart = () => (dispatch) => {
         })
         .then(response => response.json())
         .then(cart => {
-            // console.log(cart)
+            // console.log('//cart', cart)
             dispatch(addCart(cart))
         })
         .catch(error => dispatch(cartFailed(error.message)));

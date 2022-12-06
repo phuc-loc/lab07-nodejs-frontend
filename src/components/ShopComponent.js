@@ -31,7 +31,10 @@ class Shop extends Component {
         })
     }
 
+
     render() {
+        console.log(this.props)
+
         const list = this.props.products.map((product) => {
             if (this.props.products.isLoading) {
                 return (
@@ -68,7 +71,7 @@ class Shop extends Component {
                             <div className="row p-3">
                                 {/* Button addtocart */}
                                 <Form onSubmit={(value) => this.handleSubmit(value)} >
-                                    <Input type="hidden" name="productId" value={product.id} />
+                                    <Input type="hidden" name="productId" value={product._id} />
                                     <Button type="submit">Add to Cart</Button>
                                 </Form>
 
@@ -77,7 +80,7 @@ class Shop extends Component {
 
                                 {/* button Delete */}
                                 <Form onSubmit={(value) => this.handleSubmitDelete(value)} >
-                                    <Input type="hidden" name="productId" value={product.id} />
+                                    <Input type="hidden" name="productId" value={product._id} />
                                     <Button type="submit">Delete</Button>
                                 </Form>
                             </div>
