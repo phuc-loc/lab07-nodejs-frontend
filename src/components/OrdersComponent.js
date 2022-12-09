@@ -2,15 +2,15 @@ import React from "react";
 
 
 function Orders(props) {
-    console.log('//props', props)
+    console.log('//props in OrderComponent', props)
     const list = props.orders.map(order => {
         return (
             <ul>
                 <h1>#{order._id}</h1>
                 <ul>
-                    {order.items.map(product => {
+                    {order.products.map(p => {
                         return (
-                            <li>{product.title} ( {product.quantity} )</li>
+                            <li>{p.product.title} ( {p.quantity} )</li>
                         )
                     })}
                 </ul>
@@ -18,7 +18,7 @@ function Orders(props) {
         )
     })
     return (
-        <div className="container">
+        <div className="container"> 
             <div className="row">
                 {list}
             </div>

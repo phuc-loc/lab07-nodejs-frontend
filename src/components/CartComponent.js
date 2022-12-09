@@ -26,7 +26,7 @@ class Cart extends Component {
     }
 
     render() {
-        console.log('//cart', this.props.cart);
+        console.log('//cart in CartComponent', this.props.cart);
         const list = this.props.cart.map((p) => {
             if (this.props.cart.isLoading) {
                 return (
@@ -49,12 +49,12 @@ class Cart extends Component {
                 return (
                     <div>
                         <ul>
-                            <li><p>{p.title} ( {p.quantity} )</p></li>
+                            <li><p>{p.productId.title} ( {p.quantity} )</p></li>
                             <Form onSubmit={(value) => this.handleSubmitDelete(value)} >
-                                <Input type="hidden" name="productId" value={p._id} />
+                                <Input type="hidden" name="productId" value={p.productId._id} />
                                 <Button type="submit">Delete</Button>
                             </Form>
-                        </ul>
+                        </ul> 
                     </div>
                 )
         })
